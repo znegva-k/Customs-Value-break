@@ -44,5 +44,7 @@ customValueInput.addEventListener("input", (e) => {
   calculateValues(e.target.value);
 });
 
+() => {};
+
 // Initialize with empty values
 calculateValues(0);
