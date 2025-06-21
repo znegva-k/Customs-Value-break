@@ -118,12 +118,11 @@ function calculateValues(customValue) {
   setTimeout(() => {
     cvElm.value = formatCurrency(cv);
     animateValue(cvElm);
-    createPulseRing(cvElm);
   }, 400);
 }
 
 function animateValue(element) {
-  element.style.transform = "scale(1.05)";
+  element.style.transform = "scale(1.01)"; // Reduced from 1.05
   element.style.transition = "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)";
   element.style.borderColor = "var(--success)";
 
