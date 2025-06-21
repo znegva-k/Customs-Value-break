@@ -4,40 +4,106 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Customs Value Break Down</title>
-    
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css" />
+
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="background-pattern"></div>
+
+    <div class="decorative-blob blob-1"></div>
+    <div class="decorative-blob blob-2"></div>
+
+    <div class="theme-toggle" id="themeToggle">
+      <div class="theme-icon" id="lightIcon">☀️</div>
+      <div class="theme-icon" id="darkIcon">🌙</div>
+    </div>
+
     <main role="main">
-      
+      <div class="header">
+        <h1>Customs Calculator</h1>
+        <p>Calculate FOB, Freight & Insurance breakdown</p>
+      </div>
+
       <div class="calculator">
-        <input
-          type="number"
-          id="custom-value"
-          placeholder="Customs Value"
-          aria-label="Enter Customs Value"
-        />
-        <dl class="results">
-          <dt><i class="fas fa-money-bill"></i> FOB</dt>
-          <dd><input type="text" class="fob" readonly /></dd>
+        <div class="input-group">
+          <input
+            type="number"
+            id="custom-value"
+            placeholder="Enter customs value..."
+            aria-label="Enter Customs Value"
+          />
+        </div>
 
-          <dt><i class="fas fa-ship"></i> Freight</dt>
-          <dd><input type="text" class="freight" readonly /></dd>
+        <div class="results" id="results">
+          <div class="field-item">
+            <div class="field-label">
+              <span class="field-icon">💵</span>
+              FOB Value
+            </div>
+            <div class="input-container">
+              <input type="text" class="field-input fob" readonly />
+              <button class="copy-btn" data-field="fob" title="Copy FOB value">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+          </div>
 
-          <dt><i class="fas fa-shield-alt"></i> Insurance</dt>
-          <dd><input type="text" class="insurance" readonly /></dd>
+          <div class="field-item">
+            <div class="field-label">
+              <span class="field-icon">🚛</span>
+              Freight Cost
+            </div>
+            <div class="input-container">
+              <input type="text" class="field-input freight" readonly />
+              <button
+                class="copy-btn"
+                data-field="freight"
+                title="Copy Freight value"
+              >
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+          </div>
 
-          <dt><i class="fas fa-calculator"></i> Customs Value</dt>
-          <dd><input type="text" class="cv" readonly /></dd>
-        </dl>
+          <div class="field-item">
+            <div class="field-label">
+              <span class="field-icon">🛡️</span>
+              Insurance
+            </div>
+            <div class="input-container">
+              <input type="text" class="field-input insurance" readonly />
+              <button
+                class="copy-btn"
+                data-field="insurance"
+                title="Copy Insurance value"
+              >
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="field-item">
+            <div class="field-label">
+              <span class="field-icon">📊</span>
+              Total Value
+            </div>
+            <div class="input-container cv-container">
+              <input type="text" class="field-input cv" readonly />
+            </div>
+          </div>
+        </div>
       </div>
     </main>
+
     <script src="index.js"></script>
   </body>
 </html>
