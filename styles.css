@@ -46,6 +46,12 @@ body {
   overflow-x: hidden;
   transition: all 0.3s ease;
   position: relative;
+  /* Added background image styles */
+  background-image: url("back4.jpg");
+  background-size: cover; /* This makes the background image cover the entire body */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; /* Keeps the background fixed when scrolling */
 }
 
 .background-pattern {
@@ -523,6 +529,11 @@ main {
   body {
     background: linear-gradient(135deg, #1a1a1a 0%, #101010 100%);
     background-attachment: fixed;
+    /* Ensure the image is still present, or remove if a gradient is preferred on large screens */
+    background-image: url("back4.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   .background-pattern {
     display: none;
