@@ -18,15 +18,15 @@
 }
 
 [data-theme="dark"] {
-  --bg-primary: #1a1a1a; /* Darker, neutral background */
-  --bg-secondary: #2c2c2c;
-  --bg-card: rgba(44, 44, 44, 0.95);
+  --bg-primary: #1e202a; /* Slightly blue-tinted dark background */
+  --bg-secondary: #2f323f; /* Slightly blue-tinted darker secondary background */
+  --bg-card: rgba(30, 32, 42, 0.95); /* Blue-tinted card background */
   --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --border: #3c3c3c;
+  --text-secondary: #aeb8c9; /* Adjusted for better contrast with blue tint */
+  --border: #4a5061; /* Slightly blue-tinted border */
   --shadow: rgba(0, 0, 0, 0.5);
-  --glass-bg: rgba(44, 44, 44, 0.1);
-  --glass-border: rgba(60, 60, 60, 0.2);
+  --glass-bg: rgba(30, 32, 42, 0.1);
+  --glass-border: rgba(74, 80, 97, 0.2); /* Slightly blue-tinted glass border */
 }
 
 * {
@@ -46,12 +46,11 @@ body {
   overflow-x: hidden;
   transition: all 0.3s ease;
   position: relative;
-  /* Added background image styles */
   background-image: url("back4.jpg");
-  background-size: cover; /* This makes the background image cover the entire body */
-  background-position: center; /* Centers the background image */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  background-attachment: fixed; /* Keeps the background fixed when scrolling */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .background-pattern {
@@ -529,7 +528,6 @@ main {
   body {
     background: linear-gradient(135deg, #1a1a1a 0%, #101010 100%);
     background-attachment: fixed;
-    /* Ensure the image is still present, or remove if a gradient is preferred on large screens */
     background-image: url("back4.jpg");
     background-size: cover;
     background-position: center;
