@@ -4,17 +4,36 @@
   --secondary: #9b59b6; /* Amethyst Purple */
   --success: #27ae60; /* Keep success green */
   --warning: #f39c12;
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --bg-card: rgba(255, 255, 255, 0.95);
+  --bg-primary: #f8faff; /* Very light blue tint for primary background */
+  --bg-secondary: #eef2f8; /* Very light blue tint for secondary background */
+  --bg-card: rgba(
+    248,
+    250,
+    255,
+    0.95
+  ); /* Very light blue tint for card background */
   --text-primary: #2c3e50;
   --text-secondary: #7f8c8d;
-  --border: #e1e8ed;
+  --border: #dbe4ee; /* Very light blue tint for border */
   --shadow: rgba(0, 0, 0, 0.1);
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-bg: rgba(
+    248,
+    250,
+    255,
+    0.1
+  ); /* Very light blue tint for glass background */
+  --glass-border: rgba(
+    219,
+    228,
+    238,
+    0.2
+  ); /* Very light blue tint for glass border */
   --font-body: "Inter", sans-serif;
   --font-heading: "Poppins", sans-serif;
+
+  /* No longer need light-pattern-color variables if using light.webp as main background image */
+  /* --light-pattern-color-1: rgba(230, 235, 240, 0.6); */
+  /* --light-pattern-color-2: rgba(235, 240, 245, 0.6); */
 }
 
 [data-theme="dark"] {
@@ -27,6 +46,13 @@
   --shadow: rgba(0, 0, 0, 0.5);
   --glass-bg: rgba(30, 32, 42, 0.1);
   --glass-border: rgba(74, 80, 97, 0.2); /* Slightly blue-tinted glass border */
+
+  /* Specific background for dark mode */
+  background-image: url("back4.jpg"); /* */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 * {
@@ -37,7 +63,9 @@
 
 body {
   font-family: var(--font-body);
-  background: var(--bg-primary);
+  background: var(
+    --bg-primary
+  ); /* Default solid color for fallback/light-mode base */
   color: var(--text-primary);
   min-height: 100vh;
   display: flex;
@@ -46,7 +74,13 @@ body {
   overflow-x: hidden;
   transition: all 0.3s ease;
   position: relative;
-  background-image: url("back4.jpg");
+
+  /* Removed light mode patterns from here as image will cover */
+}
+
+/* Light mode background image */
+body:not([data-theme="dark"]) {
+  background-image: url("light.webp"); /* */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -114,6 +148,11 @@ body {
   animation-delay: 7s;
   width: 200px;
   height: 200px;
+}
+
+/* Hide existing decorative blobs in light mode if they conflict or aren't desired */
+body:not([data-theme="dark"]) .decorative-blob {
+  display: none;
 }
 
 @keyframes blobDance {
@@ -525,14 +564,23 @@ main {
 /* Responsive improvements */
 @media (min-width: 1024px) {
   /* Larger desktop screens */
-  body {
+  body[data-theme="dark"] {
     background: linear-gradient(135deg, #1a1a1a 0%, #101010 100%);
     background-attachment: fixed;
-    background-image: url("back4.jpg");
+    background-image: url("back4.jpg"); /* Keep for dark mode on larger screens */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }
+  /* Light mode body for large screens */
+  body:not([data-theme="dark"]) {
+    background-image: url("light.webp"); /* Use light.webp for light mode on large screens */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
   .background-pattern {
     display: none;
   }
